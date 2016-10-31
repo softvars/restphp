@@ -1,0 +1,34 @@
+uniqid():
+
+57dac92c4a243 
+php_57dac92c4a243
+57dac92c4a2438.07617886
+
+mt_rand():1758943624
+mt_rand(1000, 1000000) :543875
+
+time():1473956140
+md5(chr(time())): c0cb5f0fcf239ab3d9c1fcd31fff1efc
+$m=microtime(true):1473956140.3349
+printf("%8x%05x\n",floor($m),($m-floor($m))*1000000) : 57dac92c51c22
+date("r",hexdec(substr(uniqid(),0,8))) : Thu, 15 Sep 2016 18:15:40 +0200
+
+bad : uniqid() . '_' . md5(mt_rand()) :57dac92c51c23_fb8ab1a6bd2c687fe7dccfb2b6cab9f1
+
+struuid: F8UQ7I3K3R
+struuid: DCFCJ5EJVKGH13YO1
+
+uniqid_base36: f7uq6i2k2r
+uniqid_base36: f7uq6i2w448oehch
+
+mrand_base36: 617265
+d8a9
+
+mrand_base36:973840
+kvf4
+ 
+255s
+D:
+f7uq6i2k2r
+
+odoin5
