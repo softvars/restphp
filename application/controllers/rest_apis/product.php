@@ -47,39 +47,14 @@ class Product extends MY_Controller {
         //$res =  parent::_genRes($status);
         parent::_setOutputWithDefaultHeaders($res);
     }
-/*
-    public function update($data)
-    {
-        $data = array();
-        $data['sku'] = $this->input->input_stream('sku', TRUE);
-        $data['name'] = $this->input->input_stream('name', TRUE);
-        $data['price'] = $this->input->input_stream('price', TRUE);
-        $data['weight'] = $this->input->input_stream('weight', TRUE);
-        $data['cartdesc'] = $this->input->input_stream('cartdesc', TRUE);
-        $data['shortdesc'] = $this->input->input_stream('shortdesc', TRUE);
-        $data['longdesc'] = $this->input->input_stream('longdesc', TRUE);
-        $data['thumb'] = $this->input->input_stream('thumb', TRUE);
-        $data['image'] = $this->input->input_stream('image', TRUE);
-        $data['categoryid'] = $this->input->input_stream('categoryid', TRUE);
-        $data['createdtime'] = $this->input->input_stream('createdtime', TRUE);
-        $data['stock'] = $this->input->input_stream('stock', TRUE);
-        $data['live'] = $this->input->input_stream('live', TRUE);
-        $data['unlimited'] = $this->input->input_stream('unlimited', TRUE);
-        $data['location'] = $this->input->input_stream('location', TRUE);
 
-        $res = $this->details->update($data);
-
-        //$res =  parent::_genRes($status);
-        parent::_setOutputWithDefaultHeaders($res);
-    }
-*/
     public function update()
     {
         $data = json_decode($this->input->raw_input_stream);
 
         $result = $this->details->update($data);
         $res =  parent::_genRes(true, $result);
-        parent::_setOutputWitshDefaultHeaders($res);
+        parent::_setOutputWithDefaultHeaders($res);
     }
 
     public function delete()
