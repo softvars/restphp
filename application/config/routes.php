@@ -59,7 +59,11 @@ $route['api/catalog']['post'] = 'rest_apis/catalog/add';
 $route['api/catalog']['put'] = 'rest_apis/catalog/update';
 $route['api/catalog']['delete'] = 'rest_apis/catalog/delete';
 
-$route['api/product/(:num)'] = 'rest_apis/product/details/$1';
+$route['api/product/(:num)']['get'] = 'rest_apis/product/details/$1';
+$route['api/product']['post'] = 'rest_apis/product/add';
+$route['api/product']['put'] = 'rest_apis/product/update';
+
+
 $route['api/products/(:num)'] = 'rest_apis/products/ptdlist/$1';
 
 $route['api/cache/delete/all'] = 'rest_apis/cache/delete_all';

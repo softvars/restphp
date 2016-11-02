@@ -23,13 +23,78 @@ class Product extends MY_Controller {
 		parent::_setOutputWithDefaultHeaders($res);
     }
 
-    /*public function list_($cid = '')
+    public function add()
     {
-    	$this->load->model('product/products');
-		$result = $this->products->get($cid);
-		$this->_setOutputWithDefaultHeaders($result);
-    }*/
+        $data = array();
+        $data['sku'] = $this->input->input_stream('sku', TRUE);
+        $data['name'] = $this->input->input_stream('name', TRUE);
+        $data['price'] = $this->input->input_stream('price', TRUE);
+        $data['weight'] = $this->input->input_stream('weight', TRUE);
+        $data['cartdesc'] = $this->input->input_stream('cartdesc', TRUE);
+        $data['shortdesc'] = $this->input->input_stream('shortdesc', TRUE);
+        $data['longdesc'] = $this->input->input_stream('longdesc', TRUE);
+        $data['thumb'] = $this->input->input_stream('thumb', TRUE);
+        $data['image'] = $this->input->input_stream('image', TRUE);
+        $data['categoryid'] = $this->input->input_stream('categoryid', TRUE);
+        $data['createdtime'] = $this->input->input_stream('createdtime', TRUE);
+        $data['stock'] = $this->input->input_stream('stock', TRUE);
+        $data['live'] = $this->input->input_stream('live', TRUE);
+        $data['unlimited'] = $this->input->input_stream('unlimited', TRUE);
+        $data['location'] = $this->input->input_stream('location', TRUE);
 
+        $res = $this->details->add($data);
+
+        //$res =  parent::_genRes($status);
+        parent::_setOutputWithDefaultHeaders($res);
+    }
+/*
+    public function update($data)
+    {
+        $data = array();
+        $data['sku'] = $this->input->input_stream('sku', TRUE);
+        $data['name'] = $this->input->input_stream('name', TRUE);
+        $data['price'] = $this->input->input_stream('price', TRUE);
+        $data['weight'] = $this->input->input_stream('weight', TRUE);
+        $data['cartdesc'] = $this->input->input_stream('cartdesc', TRUE);
+        $data['shortdesc'] = $this->input->input_stream('shortdesc', TRUE);
+        $data['longdesc'] = $this->input->input_stream('longdesc', TRUE);
+        $data['thumb'] = $this->input->input_stream('thumb', TRUE);
+        $data['image'] = $this->input->input_stream('image', TRUE);
+        $data['categoryid'] = $this->input->input_stream('categoryid', TRUE);
+        $data['createdtime'] = $this->input->input_stream('createdtime', TRUE);
+        $data['stock'] = $this->input->input_stream('stock', TRUE);
+        $data['live'] = $this->input->input_stream('live', TRUE);
+        $data['unlimited'] = $this->input->input_stream('unlimited', TRUE);
+        $data['location'] = $this->input->input_stream('location', TRUE);
+
+        $res = $this->details->update($data);
+
+        //$res =  parent::_genRes($status);
+        parent::_setOutputWithDefaultHeaders($res);
+    }
+*/
+    public function update()
+    {
+        $data = json_decode($this->input->raw_input_stream);
+
+        $result = $this->details->update($data);
+        $res =  parent::_genRes(true, $result);
+        parent::_setOutputWitshDefaultHeaders($res);
+    }
+
+    public function delete()
+    {
+        $data = array();
+        $data['id'] = $this->input->input_stream('id', TRUE);
+
+        $result = $this->details->delete($data);
+        $res =  parent::_genRes(true, $result);
+        parent::_setOutputWithDefaultHeaders($res);
+
+        //$status = $this->top->delete($data);
+        //$res =  parent::_genRes($status, $data);
+
+    }
 	/*public function productoptions()
     {
     	$this->load->model('product/options');
