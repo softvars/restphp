@@ -14,7 +14,7 @@ class Product extends MY_Controller {
     {
     	//$this->load->model('product/details');
     	$status = $pid != NULL;
-    	$result = $status ? $this->details->get($pid) : array(message => 'Invalid product id');
+    	$result = $status ? $this->details->get($pid) : array(message => 'Product id is required');
 
 		$res = array();
         $res['status'] = $status;

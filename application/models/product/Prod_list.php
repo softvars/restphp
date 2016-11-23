@@ -18,10 +18,22 @@ class Prod_list extends MBase {
     	}
     }*/
 
-    public function get()
+    public function get($cid)
     {
-        $query = $this->db->get($this->_t);
-        //$this->db->join('comments', 'comments.id = blogs.id');
-		return $query->result();
+        $this->db->select('*');
+        $this->db->from($this->_t);
+        $this->db->where('tf1_products.categoryid', $cid);
+        //$this->db->join('tf1_productoptions', 'tf1_productoptions.productid = tf1_products.id', 'left');
+        $products = $this->db->get()->result();
+        /*if (isset($products))
+        {
+            $this->db->select('*');
+            $this->db->from('tf1_productoptions');
+            $this->db->where('tf1_productoptions.productid', $pid);
+            $this->db->join('tf1_options', 'tf1_productoptions.optionid = tf1_options.id', 'left');
+            $product_options = $this->db->get()->result();
+            $products['options'] = $product_options;
+        }*/
+        return $products;
     }
 }

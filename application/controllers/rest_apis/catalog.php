@@ -8,6 +8,7 @@ class Catalog extends MY_Controller {
 
     public function index()
     {
+        $data = array();
         $data['id'] = $this->input->input_stream('id', TRUE);
 
 		$data = $this->top->get();

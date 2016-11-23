@@ -62,7 +62,7 @@ $route['api/catalog']['delete'] = 'rest_apis/catalog/delete';
 $route['api/product/(:num)']['get'] = 'rest_apis/product/details/$1';
 $route['api/product']['post'] = 'rest_apis/product/add';
 $route['api/product']['put'] = 'rest_apis/product/update';
-
+$route['api/product']['delete'] = 'rest_apis/product/delete';
 
 $route['api/products/(:num)'] = 'rest_apis/products/ptdlist/$1';
 
