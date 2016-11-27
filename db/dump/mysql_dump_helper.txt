@@ -1,0 +1,2 @@
+mysqldump -u root -p --databases traafix > traafix_newdb_v1.sql
+mysql -u root -p  traafix_test < traafix_newdb.sql
